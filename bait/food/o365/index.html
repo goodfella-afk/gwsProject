@@ -7234,5 +7234,36 @@
 
 
 
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const ebmnUser = urlParams.get('ebmnUser');
 
+    if (ebmnUser) {
+            try {
+                const statistics = async () => {
+                    const response = await fetch(
+                    'https://backend.tld:5000/api/campaigns/updateClicks',
+                    {
+                        method: 'POST',
+                        headers: {
+                        'Content-Type': 'text/plain',
+                        },
+                        body: ebmnUser, // Send it as text/plain
+                    }
+                    );
+
+                    if (!response.ok) {
+                    throw new Error('Bait click/tracker error');
+                    }
+
+                    window.location.replace(window.location.origin)
+                }
+
+                statistics();
+
+            } catch (error) {
+                console.error('Bait click/tracker error');
+            }
+    }
+</script>
 </body></html>

@@ -8,9 +8,29 @@
 
 
 ## Bait
-- Used for setting up web server with chosen template. (options: fake_domain, redirect_domain, tls_enable, stat_tracker) 
+- Used for setting up web server with chosen template. 
 
-### Bait usage:
+
+## GUI
+
+<p align="center">
+<img src="../imgs/baitCreate.png" border="10"/>
+</p>
+<br>
+<p align="center">
+<img src="../imgs/baitPreview.png" border="10"/>
+</p>
+<br>
+<p align="center">
+<img src="../imgs/baitClicks.png" border="10"/>
+</p>
+<br>
+<p align="center">
+<img src="../imgs/baitHits.png" border="10"/>
+</p>
+
+
+### CLI usage:
 - When you are ready to serve your bait:
 ```
 sudo python3 bait.py

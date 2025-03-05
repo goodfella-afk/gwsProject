@@ -1,0 +1,6 @@
+Dear, ${PERSON_NAME}
+
+This is a default gwsProject email message  - ${DOMAIN}/?ebmnUser=${EMAIL}
+
+Br,
+bigfella

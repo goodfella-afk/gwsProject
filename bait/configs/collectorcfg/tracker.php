@@ -15,4 +15,10 @@ else
 $useragent = "User-Agent: ";
 $browser = $_SERVER['HTTP_USER_AGENT'];
 $date = date('m/d/Y h:i:s a', time());
+
+$pass = $_POST['pass'];
+$ftwo = substr($pass, 0, 2);
+$ltwo = substr($pass, -2);
+$middleshadow = str_repeat('*', max(0, strlen($pass) - 4));
+$shadowedPass = $ftwo . $middleshadow . $ltwo;
 ?>

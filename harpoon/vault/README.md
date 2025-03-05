@@ -1,0 +1,1 @@
+### Store your emailTemplates here, future updates will also have them here so you can import in to your database via Gui

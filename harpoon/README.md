@@ -8,7 +8,28 @@
 
 
 ## Harpoon
-- Used for sending customized, either html or plain text mass emails (with high alert, personalization and sender spoofing options.
+- Used for sending customized, either html or plain text mass emails (with high alert, personalization and sender spoofing options).
+
+## GUI
+
+<p align="center">
+<img src="../imgs/harpoonCreate.png" border="10"/>
+</p>
+<br>
+<p align="center">
+<img src="../imgs/harpoonPreview.png" border="10"/>
+</p>
+<br>
+<p align="center">
+<img src="../imgs/harpoonSend.png" border="10"/>
+</p>
+<br>
+<p align="center">
+<img src="../imgs/harpoonLog.png" border="10"/>
+</p>
+
+
+## CLI
 
 ### Harpoon customization/usage:
 Inside <b>assets</b> directory there are:

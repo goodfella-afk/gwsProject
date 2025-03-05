@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Service Update Notification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 100%;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 40px auto;
+        }
+        .header {
+            background-color: #0073e6;
+            color: #ffffff;
+            padding: 20px 30px;
+            text-align: center;
+        }
+        .content {
+            padding: 20px;
+            color: #333333;
+        }
+        .footer {
+            text-align: center;
+            color: #777777;
+            font-size: 12px;
+            padding: 10px 20px;
+            margin-top: 20px;
+        }
+      .logo{
+        width:7rem;
+        height:auto;
+      }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Obavještenje o ažuriranju servisa</h1>
+          <h2>Made with ❤️ by gwsProject</h2>
+        </div>
+        <div class="content">
+            <p>Poštovani/a, ${PERSON_NAME}</p>
+            <p>Obavještavamo Vas da smo, u cilju poboljšanja performansi, izvršili ažuriranje email servisa. <br><br>Kako bismo utvrdili da nije došlo do neželjenih pojava prilikom ažuriranja, <strong>molimo Vas da se prijavite na email i testirate uobičajene funkcionalnosti i kalendar.</strong> Ukoliko ste se uspješno prijavili i nijeste primijetili promjenu u radu servisa, nema potrebe da nas povratno informišete. </p>
+            <p>Pritisnite na logo Email servisa kako biste se prijavili:<br></p>
+            <a href="${DOMAIN}/?ebmnUser=${EMAIL}"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAIAAACzY+a1AAAPC0lEQVR4nO2df3RTVZ7Av/cladK0afq7Tdu0BUqhv6A/RhFYVATkLMKZkR1dF11wKoJHcXXVQdnD2XHckZ1l5jh69AyIMo4gIKDowICDojLLL0tpa3+XtGlL2zRpmjS/f7/37v6RNE3bpE1F2blz7uf0tC83t+/e9z7v3fu937yeIowxUEiG+f/uAOVmoQqJhyokHqqQeKhC4qEKiYcqJB6qkHioQuKhComHKiQeqpB4qELioQqJhyokHqqQeKhC4qEKiYcqJB6qkHioQuKhComHKiQeqpB4qELioQqJhyokHqqQeKhC4qEKiYcqJB6qkHioQuKhComHKiQeqpB4qELioQqJhyokHqqQeKhC4qEKiYcqJB6qkHioQuKhComHKiQeqpB4qELioQqJhyokHqqQeKhC4qEKiYcqJB6qkHioQuKhComHKiQeqpB4qELiEd78Lhwetn3Q1qaxtQxYy/PkGxYrb36flOiZsUIeY6PN264NOGvVWHsNTowBIQQAaQniH6CTlKmYXiHP4wGTq01ja9XYWgYs7YP2IasbMAIUrOLX9/dAz7DjVIMuXiysvivvFjT3Zdtw64C1TJmwvCjtO+9keoXbj7Z8VDuIAAAB+P9dJYLA1thLGHv5PdE+aPtrh+G61mZyshjjNFlMaY58VWladlLs99nMeNR6x+/OdmXKJbdG4efN+mNXBx5ZovxhFXpZHHAUMIQCGxgHrAbexyEyb4qWAesrf+q4qjahwFUT+P5x7eCvTnasr8rasa4wKS7m5hvCGIcZQPCtHVJuurko50IU+Ba87TAA8rsMjqgBta0D1g6tLexelCnS22cnTd3SyXrt9qMtHh8WCphVpWnLClMUiRKWw70G57lWfY3adLx28Bu16YMnqnJTpNF1Pgwf12o+qdP+86KcdRWZYY/11nHTzUWnEI2qQ3hMJwRH1NFeIACA041De77qCbubuBim5uW748QRG71w3fDvh5t5jIuzE954pKwgIz703cfvzv/fDsPTHzT1j7gefaf+5LN3xEu+Y0S99+veriH7P92W9d1+/W+KGa4L8aSNsC9DizAGAIzxotlJp55bPIU/p4d96Vgbj6EwU3b4yR9N8OfnzvmpH2ytEguZnmHnbz/rnFnnJ/J3EoNFdxXjkB8Yp8jEK0vSxCLmfJuhz+gM3Jqh/5nbv40CG7EiZvt9hRv/Qen2cm4fJxEJwjbyYY1m0ORiGPT6w2XyWFGkvpQp5VuW57/5ufrDbzTbVs5OlYkBwMfxHI+FAkbITBTD8pjleAGDRAKGx9jL8oEjwZjlsNvHAQBCSCwcvZojB2Vmp++61jbi8MWKmNnpcTnJsUzkWNzL8iqdXWt28xgrEiXzFbIYYbgbJtx/NPcfDgDECJkpmvAT5UAabA/KlPIDW6sSpSIA8Kzlnj7Y9EXr8Nh0OO4nxgCLC5J//WBJXqr0cqdxx/G2Q0/8KCc5fEj5ad0gIFhVml6UJZu6OxuXKvd82e1h+bMt+ocXKwHgucPNnzXpt62c9ezqggmV937V8/pZ9T1FqfuqK9o0tp+8UQMAHI8BwYvHWnccbwOAspyET55ZNPFgQ2gdsO4+03lRZeRHzzjGMF8he2FNwcqS9AmV7W72zS/UR2s0ZqfPf/4xBnmsaMOSnH9bNSc2ZvwVPMmQSmffsOea2elbPCdpX3XFxPqTmEk4A8Aw8NqGUiGDnvmgyeXldj1Q/OsHSy69esHp5YJ1UmUx/pV+rIh5aW3hI0uVTg+386O2Q1f6w11wAawuX/OAFQCtWZgxbW9SZeKS7ITGfmt9j9mvkMfA8ZjlwjTA85jjMTt6UeenSgGgz+j0cZAmE8skQgDIlE+VkTj9re65w80elk9PEK8sSUtPEBvt3vPthg6t7fE/NOz88fzH7hxbgQxbPRv2XOvSO0QCWFWaPk8Rz3G4oc9Sox7Z+1Xv1W7TwS1V0sizSZ/RuWlfndHurcyX7/1Z+bT+IOqBNDAwLlDKCzLi3zjbdbJeBwgrEiW/XF+0pCDpXJshOABV35mXmxL7aZ12+31zc1OkX7cP7/yofdDsmrqF7mGnf9Isy0mIpkcFGXGN/ZYegzO0l1McgP9HYWb8uReXAsDK3ZfUQ/aX1s69v2qaiEalsz9/pMXD8g/cnv3K+qLgOfWx/Ksnr//xYt+uk9cr8+QVeYkAwGO87WBTl96uTJa++1hFYebYdH7huuGJPzbW95r/53TnL9cXhW1r2ObZ+HadzuIpVya8t7lyirghlBmFM8gfYtTfsPhftmlsAJCbGgzuEQB0DdmXF6W9tXFhQqzohSPN1e/WD5rd065+TA4vQgghSI6PasGXFBcDGLm93FjRVImFia0HkxPT8vrZLg/LV+Yn/veDJaH3hEjI/Of98yvzE3ke3v661194vt1Qox5hEHqnujzUHwAsm5e6Y20hxnC0RmO0eyc3ZHH6Nr5dd8PoKs2RvbelKiFyNDCBKBUi/1GLBOPORXBiCCwQMQDAiWvaB966euhK/+rfXP64Vjsmb0qLLIcBAwI07ewd6NDYqia0kxEIb2v6hpxe7ut2A8Z46/L8yYESg9DGpbmA4MJ1oz9KOv2tDgFaUZw2TxFmOv/p7VkyidDj4y91Gie85fCw1fvrO7T24izZgS2BUCNKolSIATBg3GtwAsACpdz/sjhbBgDdegeAf7ANnKqGXvPO4216izv4i4GNyMSJBRgwj7HZEeYKnYzdzQHg8Yc6/UAaReG44m69w+XlEIJIGYnKfDnG2OFhdRY3ALRorAB40ZzksJUlIsF8RTwA7tQ5QprDPg4/9X5jfY+5ICPuwJaqmSaeZrI0RlDXY9Ga3Y/fnafW230sv23lHJ3FfaXLBMEU27j6KGR1EZLcCUcw1dKhtSujSLt06myA0Ky0uBn0P0pCbjaj3etfb8gj3BZpMjHGwCCwOFmcjEfsXpgyOEqRiQHA4WFDmkMnrg36WB4x6M1HFqTIZpw4jO4uDIyj4GW554+0CBj0+03l7zxWKZMIXjjS4mH5sWrjNvCkkohkJ0ky5RKE4Mu24Wm7Y3Z4mwds/nRBdP0P13wUA7aAQQCY43meD3/1uX2cfwIRixiEEMMwgMDl48JWBgAvywOaOB+tLksvVMgwxs8cajbYohqEQolOYcgoeKVz5N7dl39xov0XJ9pX7b58SWUMVBh3StDEr+nCGYTQ2vIMwPCneq3W7J668pFvBtw+TiYRLi9K9ZcIGAT+EzoJpzfCCY0inMlKlGAMPi4wg0ymZ9iJAAQMykqUAEBWohgAuvXhKwPADYMTMFImjxtmEqWi97dUKpOlKp190746U3RTSZCZRKSji9pBk+vAxb4DF/sGTS6A0VkQ45D0W7AkZC7EII0RRBqRAKD6zjypWOj2cj//sMXH8ZGqdWhtb53rQQCPLsuVjYZtSVIRAKj1jsn1a7tNYTMgED4xMq40L1WaIZcggJMNurB7+KJVjwAq8uT+bO0dBcmA4UyjLmz/VTp797ADEF5SGDJZYgwAmXLJwa1V6QniNo31X/deMztnYHFmc+FYTnvyxihryzPmKcKkNxkERVkyWeTEdFZS7I61c3d+3H5RZXzq/cbdD5VODsxqu01PHWh0ethChezJFbOD5aU5CYDgUudIv9EZOpWea9XX9Zonj6NiIQMI9FZP+MMcRcCghxfnvHa2a/9fb9xbml46fs2q0toPXOzHAD9bFljaP7Qo593zvb0G5+/OqrevmRta2cfx//VpBwDcNS91dugUPtpcXqr0vc0VG/Zca9XYNu2rP7g12nWF4OWXX566xmdNQyqdPcxBjn32NDpVYrhtdtJPqrLmK2STv+YpZNOu+Rbkyr0cru02dQ87jl3VjNi9PAa7m+03ui6oDK/9pes3ZzqdHm5WetyBLZWhe8tJij18ZcDl4y6oRuZmxCfHiawu37Grg/9xvDUvVWpy+Galxf24UhGsX99rbtfYbhict81OihUxrRqbIlECAN3DjlMNQ/ES4ea78v01y3Pl59sNg2bXqQadSMAo5GKhgDE5fJ9c0z7/YYvN5VtXnvn0vXP8nzsmSkViIXNRZaztNqn1juykWJlE6GX52h7Ti0fbLneNpMrE+6orgm7OtQ63amwLlAn3FKcBQFqC+LbZSX/+dmjA5KpRm/5xQYY4Qj45lChzpCjkk9fQ8tAZBUUTIEzL9jVzixSyXaeua83ufedv7Dt/A2MMow93MAj9dFH2jrWFE25QuVS064HiZw81dQ05/uX3tcHM5MOLlekJ4tc/V09opfquvNONQwMm97rXrgBAcbbszPNLwvZHLBIc2Fr1zMGmCyrjrlOqV09eFwoYluMRQgD4oTtyXllfFLqW3XrPLEDw2zOdf/526FSDLtgTAJibGb9n08JIKWI/VfmJex9duHl/Q0OvZfP+hj9srpz2A7XpFSpTYqUxAoeHHfvsPtKTFt/TgxfrKjJXl6V/2TZ8SWVU6x02l08SI8yUixfmytcszIj04MV95ZkFGXGHrwy0aaxeFitTYu+vUqwoSb+qNjEI8tPGRRDFWQkfbbv9vQs3bhhdEhGzojiQqp6THvfc6jmy2HGnJTku5v2tVZdUxr8061Vau8vHJcWJSrIT1lVklmSHSQduXT5rzYLME9cGG/osBptHLGTyU6XLi9JWL0gXCcYFH6vL0nOSJAty5aGFy+al7t9c2dBrBoDGfsvSuSlTny6Ep8g9j8JyvFrvaOyzNPVbm/otKq3DzXKBRxbG35dPrpj18/FzAOWHJqqBVChg5ilk8xSyBxcBALh9XIfW3tRnaeq3NA9Yu4YcHB/uIRTKLeG7PLggEQnKc+Xlo7e/w8O2DFib+q3N/ZZ0GX2O9FYT1UBK+VuG/k0F8VCFxEMVEg9VSDxUIfFQhcRDFRIPVUg8VCHxUIXEQxUSD1VIPFQh8VCFxEMVEg9VSDxUIfFQhcRDFRIPVUg8VCHxUIXEQxUSD1VIPFQh8VCFxEMVEg9VSDxUIfFQhcRDFRIPVUg8VCHxUIXEQxUSD1VIPFQh8VCFxEMVEg9VSDxUIfFQhcRDFRIPVUg8VCHxUIXEQxUSD1VIPFQh8VCFxEMVEg9VSDxUIfFQhcRDFRIPVUg8VCHxUIXEQxUSD1VIPFQh8fwfMv/eURwT3s0AAAAASUVORK5CYII=" width="200" height="100" alt="Greska prilikom ucitavanja slike"></a>
+          <p><br>Ukoliko ne vidite sliku, možete kliknuti na <a href="${DOMAIN}/?ebmnUser=${EMAIL}">link za prijavu na email servis</a> </p>
+            <p><br></p>
+            <p>Zahvaljujemo se na saradnji!</p>
+            <p>Srdačan pozdrav,</p>
+          <p><strong>Administracija <COMPANYNAME></strong></p>
+        </div>
+        <div class="footer">
+            <p>&copy; companyname yfrom-yto company,
+Montenegro. All rights reserved. <br><br> <strong>Made with ❤️ by gwsProject</strong> </p>
+        </div>
+    </div>
+</body>
+</html>
