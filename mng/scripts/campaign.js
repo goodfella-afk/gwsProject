@@ -85,10 +85,12 @@ const handleButtonEvents = () => {
 
   document.querySelectorAll('.js-delete-campaign-button').forEach((delButton) => {
     delButton.addEventListener('click', async () => {
-      const delButtonUniq = delButton.dataset.delButtonId;
-      await deleteCampaign(delButtonUniq);
-      await fetchCampaigns();
-      renderOpenCampaignWindowHTML();
+      if (confirm('This campaigns data will get deleted, are you sure?')) {
+        const delButtonUniq = delButton.dataset.delButtonId;
+        await deleteCampaign(delButtonUniq);
+        await fetchCampaigns();
+        renderOpenCampaignWindowHTML();
+      }
     });
   });
 
@@ -136,11 +138,12 @@ const renderFormPromptHTML = () => {
     <label for="title">Enter your campaign title:</label>
     <input type="text" id="title" name="title" placeholder="Campaign Title" autocomplete="off" required>
 
-    <label for="bait">Choose your bait - (o365, owa2019):</label>
+    <label for="bait">Choose your bait - (o365, owa2019, warning):</label>
     
     <select name="bait" id="bait" required>
         <option value="o365">Office 365 login</option>
         <option value="owa2019">Outlook login</option>
+        <option value="warning">Warning</option>
     </select>
 
     <label for="domain">Enter domain (or IPv4) for your campaign:</label>

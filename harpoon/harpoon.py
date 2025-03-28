@@ -85,12 +85,17 @@ def harpoon(smtpuserArg, smtppassArg, smtphostArg, templateArg, domainArg, campa
 
 # Update logs inside psql
 def updateLogs(campaign, log_detail):
+    proxies = {
+        "http" : None,
+        "https" : None,
+    }
+
     url = f'https://localhost:5000/api/harpoon/updateLogs?campaignTitle={campaign}'
     headers = {"Content-Type":"application/json"}
 
     #Send POST
     try:
-        response = requests.post(url, json=log_detail, headers=headers, verify=False)
+        response = requests.post(url, json=log_detail, headers=headers, verify=False, proxies=proxies)
 
         #Check response
         if response.status_code == 200:

@@ -237,7 +237,7 @@ const renderSendEmailForm = (templateTitle) => {
     <input type="text" id="subject" name="subject" placeholder="Get creative" autocomplete="off" required>
 
     <label for="smtpspoof">From: (spoof)</label>
-    <input type="text" id="smtpspoof" name="smtpspoof" placeholder="John Doe johndoe@mail.me" autocomplete="off" required>
+    <input type="text" id="smtpspoof" name="smtpspoof" placeholder="John Doe <johndoe@mail.me>" autocomplete="off" required>
 
     <label for="contacts">Contact list</label>
     <textarea id="contacts" name="contacts" placeholder="Name name@mail.com" autocomplete="off" required></textarea>

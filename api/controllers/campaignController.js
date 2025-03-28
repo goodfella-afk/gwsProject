@@ -168,6 +168,14 @@ export const updateHits = (req, res, next) => {
 export const updateClicks = (req, res, next) => {
 
   const updateClicks = async (req) => {
+    const date = new Date();
+	  const day = String(date.getDate()).padStart(2, '0'); 
+	  const month = String(date.getMonth() + 1).padStart(2, '0'); 
+	  const year = date.getFullYear(); 
+	  const hours = String(date.getHours()).padStart(2, '0'); 
+	  const minutes = String(date.getMinutes()).padStart(2, '0'); 
+	  const seconds = String(date.getSeconds()).padStart(2, '0'); 
+	  const formattedDate = `${day}-${month}-${year} ${hours}:${minutes}:${seconds}`;
 
     try {
       // Find live campaign as there could be only 1 up.
@@ -188,7 +196,7 @@ export const updateClicks = (req, res, next) => {
       const updatedData = {
         ...campaign.data, // Spread the existing data
         // hits: [...campaign.data.hits, newHit], // Append the new hit instead changing whole line - if needed.
-        clicks: [...campaign.data.clicks, {"clicked": newClick}], // Append the new hit
+        clicks: [...campaign.data.clicks, {"clicked": newClick,"timestamp":formattedDate,"srcIp":req.ip.split(':').pop()}], // Append the new hit
       };
 
       // Save the updated record

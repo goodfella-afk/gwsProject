@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+<style>
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.bg-image {
+  background-image: url("bg.jpg");
+  filter: blur(8px);
+  -webkit-filter: blur(10px);
+  height: 100%; 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+.bg-text {
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0, 0.4); 
+  border: 3px solid #f1f1f1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 40%;
+  padding: 20px;
+  text-align: center;
+  color:white;
+  justify-items: center;
+}
+
+h1{text-shadow: .6px .6px black; color:red !important; font-size:28pt;}
+h4{font-size:14pt;}
+p{background-color:#2870ed;border-radius:25px;padding:1rem;}
+
+.logo-container {
+    border-radius:25px;
+    background-color:#2870ed;
+    width:10rem;
+    height:5.8rem;
+    padding:1rem;
+    margin-bottom:2rem;
+  }
+</style>
+</head>
+<body>
+
+<div class="bg-image"></div>
+
+<div class="bg-text">
+  <h1>Warning !</h1>
+  <h1>Phishing page</h1>
+  <h4 class="message"></h4>
+  <img src="gwslogo-transparent.png" alt="Logo" width="200px" height="200px">
+  <div class="countdown"></div>
+</div>
+
+
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const ebmnUser = urlParams.get('ebmnUser');
+
+    if (ebmnUser) {
+            try {
+                const statistics = async () => {
+                    const response = await fetch(
+                    'https://backend.tld:5000/api/campaigns/updateClicks',
+                    {
+                        method: 'POST',
+                        headers: {
+                        'Content-Type': 'text/plain',
+                        },
+                        body: ebmnUser, // Send it as text/plain
+                    }
+                    );
+
+                    if (!response.ok) {
+                    throw new Error('Bait click/tracker error');
+                    }
+
+                    window.location.replace(window.location.origin)
+                }
+
+                statistics();
+
+            } catch (error) {
+                console.error('Bait click/tracker error');
+            }
+
+            localStorage.setItem('ebmnUser', ebmnUser);
+    }
+
+	user = (localStorage.getItem('ebmnUser')) ? localStorage.getItem('ebmnUser') : ''
+  document.querySelector('.message').innerHTML = `${user} - You've opened <span style="text-shadow: 2px 2px black;color:green !important">simulation</span> of a phishing attack. Education will begin shortly...`;
+  
+  function countdown() {
+  let count = 15;
+  const countdownElement = document.querySelector(".countdown");
+  
+  const interval = setInterval(() => {
+	if (count > 0) {
+		countdownElement.innerHTML = `Education begins in <strong>${count}</strong>`;
+		count--;
+	} else {
+		clearInterval(interval);
+		window.location.href="https://eduMaterialBlogPosts.tld";
+	}
+  }, 1000);
+  }
+  
+  countdown();
+  
+</script>
+</body>
+</html>

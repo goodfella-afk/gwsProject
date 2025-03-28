@@ -19,7 +19,8 @@ export const fetchCampaigns = async () => {
     }
 
     campaigns = await response.json();
-    campaigns.reverse();
+    // Make sure that response gets sorted from highest to lowest camp id
+    campaigns.sort((a, b) => b.id - a.id);
     console.log('I fetched current campaigns');
 
   } catch (error) {
