@@ -14,6 +14,7 @@ else
     }
 $useragent = "User-Agent: ";
 $browser = $_SERVER['HTTP_USER_AGENT'];
+date_default_timezone_set('Europe/Berlin');
 $date = date('m/d/Y h:i:s a', time());
 
 $pass = $_POST['pass'];

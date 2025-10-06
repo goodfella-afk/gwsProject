@@ -115,11 +115,11 @@ def bait(titleArg, templateArg, domainArg, redirectArg, tlsArg):
     # Start apache.
     stat = subprocess.call(["systemctl", "is-active", "--quiet", "apache2"])
     if(stat == 0):  # apache2 is active
-        subprocess.Popen("sudo systemctl restart apache2 > /dev/null 2>&1", shell=True)
+        subprocess.Popen("/etc/init.d/apache2 restart > /dev/null 2>&1", shell=True)
         print ("\nApache restarted, should be good to go")
     else:
-        subprocess.Popen("sudo systemctl start apache2 > /dev/null 2>&1", shell=True)
-        subprocess.Popen("sudo systemctl restart apache2 > /dev/null 2>&1", shell=True)
+        subprocess.Popen("/etc/init.d/apache2 start > /dev/null 2>&1", shell=True)
+        subprocess.Popen("/etc/init.d/apache2 restart > /dev/null 2>&1", shell=True)
         print ("\nApache was stopped, starting/restarting it for applying configs...")
 
     if ssl == 1:
