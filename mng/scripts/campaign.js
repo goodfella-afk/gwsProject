@@ -183,7 +183,7 @@ const renderHitsViewHTML = (campaignId) => {
 
   const hitsViewHTML = `
   <div class="hits-view">
-    <p>${JSON.stringify(matchingCampaign.data.hits, null, 4)}</p>
+    <p>${JSON.stringify(matchingCampaign.data.hits.slice().reverse(), null, 4)}</p>
   </div>`;
   
   document.querySelector('.js-window-content').innerHTML = hitsViewHTML;
@@ -212,7 +212,7 @@ const renderClicksViewHTML = (campaignId) => {
 
   const clicksViewHTML = `
   <div class="clicks-view">
-    <p>${JSON.stringify(matchingCampaign.data.clicks, null, 4)}</p>
+    <p>${JSON.stringify(matchingCampaign.data.clicks.slice().reverse(), null, 4)}</p>
   </div>`;
   
   document.querySelector('.js-window-content').innerHTML = clicksViewHTML;
@@ -239,7 +239,7 @@ export const renderLogsViewHTML = (campaignId) => {
 
   const logsViewHTML = `
   <div class="hits-view">
-    <p>${JSON.stringify(matchingCampaign.data.logs, null, 4)}</p>
+    <p>${JSON.stringify(matchingCampaign.data.logs.slice().reverse(), null, 4)}</p>
   </div>`;
   
   document.querySelector('.js-window-content').innerHTML = logsViewHTML;
