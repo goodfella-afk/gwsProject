@@ -68,6 +68,7 @@ sudo -u postgres psql -c "CREATE DATABASE $DB_NAME OWNER $DB_USER;" > /dev/null 
 
 if [ $? -eq 0 ]; then
     GREEN "Database and user created successfully."
+    RED "Default password has been set, make sure to change it for production"
 else
     YELLOW "Already created, continuing...."
 fi

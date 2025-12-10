@@ -33,7 +33,10 @@ sudo bash -c "cat > $APACHE_CONFIG <<EOF
     SSLCertificateChainFile $TLS_DIR/int.pem
 
     <Directory $MANAGEMENT_DIR>
-        Require all granted
+        AuthType Basic
+        AuthName 'Auth required'
+        AuthUserFile /etc/apache2/.htpasswd
+        Require valid-user
     </Directory>
 
     ErrorLog \${APACHE_LOG_DIR}/mng_error.log
@@ -55,11 +58,22 @@ fi
 # echo "Restarting Apache..."
 BLUE "Starting the frontend..."
 sudo systemctl restart apache2 > /dev/null 2>&1
+GREEN "Management center is now served on https://$MANAGEMENT_DOMAIN:$PORT"
+GREEN "If you have not, create management user: 'sudo htpasswd -c /etc/apache2/.htpasswd newUsername'"
 
 # Step 7: Start the backend
 BLUE "Starting the backend..."
 cd "/opt/gwsProject/api/"
-npm run prod > "/opt/gwsProject/api/logs/backend_$(date '+%d-%m-%Y_%H-%M-%S').log" 2>&1 &
-echo "Backend app started in the background."
 
-GREEN "Management center is now served on https://$MANAGEMENT_DOMAIN:$PORT"
+# Load NVM in the current session
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+# Verify that NVM is loaded
+if command -v nvm > /dev/null 2>&1; then
+    npm run prod > "/opt/gwsProject/api/logs/backend_$(date '+%d-%m-%Y_%H-%M-%S').log" 2>&1 &
+    echo "Backend app started in the background."
+else
+    RED "Failed to load NVM, thus npm run failed as well. backend is not active."
+    exit 1
+fi

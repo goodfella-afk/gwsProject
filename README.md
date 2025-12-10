@@ -2,7 +2,7 @@
 <h3 align="center">Author: <a href="https://nikolazivkovic.me">bigfella</a></h3>
 
 <p align="center">
-<img src="./imgs/gwslogo.png" width="300" height="200" border="10"/>
+<img src="./imgs/gwslogo-transparent.png" width="300" height="200" border="10"/>
 </p>
 <p align="center">Automated toolkit for conducting phishing campaigns</p>
 
@@ -48,7 +48,7 @@ git clone "https://github.com/goodfella-afk/gwsProject.git"
   - .../bait/ssl (<b>optional</b>)
   
 - Name your certs like following: int.pem, priv.pem, pub.pem
-- Gws will initialize psql db with default gwsuser credentials, for production purposes, change psql password and .env variables.
+- ** !!! Gws will initialize psql db with default gwsuser credentials, for production purposes, change psql password and .env variables.**
 
 - Run installRequirements.sh inside gwsProject directory
 ```
@@ -59,7 +59,7 @@ git clone "https://github.com/goodfella-afk/gwsProject.git"
 gws-start / gws-stop
 ```
 
-## CLI SETUP 
+## CLI USAGE (optional)
 ```
 python3 $moduleNamectl.py
 ```
